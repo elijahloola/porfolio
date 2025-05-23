@@ -1,0 +1,42 @@
+{
+    "projects": [
+        {
+            "id": 1,
+            "title": "PNDDH – Plateforme numérique pour les Défenseurs des Droits Humains",
+            "client": "Développement pour l'ONG Inter Actions",
+            "description": "Site Web : www.inter-actions-ong.org",
+            "links": [
+                {
+                    "url": "http://www.inter-actions-ong.org",
+                    "text": "Visiter le site"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "title": "Applications Android (sous le label GTInstaller)",
+            "client": "",
+            "description": "Plusieurs applications développées sous Flutter",
+            "subProjects": [
+                {
+                    "name": "Branham Story",
+                    "description": "Application regroupant histoires, poèmes et témoignages du Rév. William Branham.",
+                    "technologies": ["Flutter", "SQLite", "Firebase"],
+                    "link": "https://play.google.com/store/apps/details?id=com.gtinstaller.branhamstory&hl=fr"
+                },
+                {
+                    "name": "Branham Player",
+                    "description": "Lecteur intelligent de sermons audio.",
+                    "technologies": ["Flutter", "SQLite", "Firebase"],
+                    "link": "https://play.google.com/store/apps/details?id=com.branham.player&hl=en"
+                }
+            ],
+            "links": [
+                {
+                    "url": "https://play.google.com/store/apps/dev?id=4959152404596968962&hl=fr",
+                    "text": "Voir toutes les applications"
+                }
+            ]
+        }
+    ]
+}

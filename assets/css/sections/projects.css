@@ -1,0 +1,81 @@
+/* ========== Projects Section ========== */
+.projects-section .section-title {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    position: relative;
+}
+
+.projects-section .section-title h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    display: inline-block;
+    padding-bottom: var(--space-sm);
+}
+
+.projects-section .section-title h2::after {
+    content: '';
+    position: absolute;
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.project {
+    margin-bottom: var(--space-xl);
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+}
+
+.project:hover {
+    transform: translateY(-5px);
+}
+
+.project-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: var(--space-md) var(--space-lg);
+}
+
+.project-header h3 {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-sm);
+}
+
+.project-header .client {
+    font-style: italic;
+    opacity: 0.9;
+    font-size: 0.9rem;
+}
+
+.project-content {
+    padding: var(--space-lg);
+}
+
+.project-content h4 {
+    color: var(--secondary-color);
+    margin: var(--space-md) 0 var(--space-sm);
+}
+
+.project-links {
+    margin-top: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .projects-section .section-title h2 {
+        font-size: 1.5rem;
+    }
+    
+    .project-header {
+        padding: var(--space-sm) var(--space-md);
+    }
+    
+    .project-content {
+        padding: var(--space-md);
+    }
+}

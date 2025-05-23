@@ -1,0 +1,73 @@
+/* ========== Variables ========== */
+:root {
+    /* Couleurs */
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --text-color: #333;
+    --text-light: #7f8c8d;
+    
+    /* Typographie */
+    --font-primary: 'Segoe UI', system-ui, sans-serif;
+    --font-size-base: 1rem;
+    
+    /* Espacements */
+    --space-sm: 0.5rem;
+    --space-md: 1rem;
+    --space-lg: 2rem;
+    --space-xl: 3rem;
+    
+    /* Bordures */
+    --border-radius: 0.5rem;
+}
+
+/* ========== Base ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f9f9f9;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+}
+
+.section {
+    padding: var(--space-xl) 0;
+}
+
+.section:nth-child(even) {
+    background-color: var(--light-color);
+}
+
+/* ========== Imports ========== */
+/* Utilitaires */
+@import 'utilities.css';
+
+/* Composants */
+@import 'components/buttons.css';
+@import 'components/cards.css';
+@import 'components/contact.css';
+
+/* Sections */
+@import 'sections/header.css';
+@import 'sections/profile.css';
+@import 'sections/skills.css';
+@import 'sections/projects.css';
+@import 'sections/footer.css';

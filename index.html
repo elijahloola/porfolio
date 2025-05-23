@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elie Loola - Développeur Flutter & Informaticien Polyvalent</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #7f8c8d;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 60px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAzKSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==');
+            opacity: 0.6;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .contact-item i {
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: transform 0.3s;
+        }
+        
+        .social-links a:hover {
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        section:nth-child(even) {
+            background-color: var(--light-color);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .skill-category {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-category h3 {
+            color: var(--secondary-color);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        
+        .skill-category ul {
+            list-style-type: none;
+        }
+        
+        .skill-category li {
+            margin-bottom: 8px;
+            position: relative;
+            padding-left: 20px;
+        }
+        
+        .skill-category li::before {
+            content: '•';
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .project {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+        
+        .project:hover {
+            transform: translateY(-5px);
+        }
+        
+        .project-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 15px 20px;
+        }
+        
+        .project-header h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+        
+        .project-header .client {
+            font-style: italic;
+            opacity: 0.9;
+            font-size: 0.9rem;
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-links {
+            margin-top: 15px;
+        }
+        
+        .project-links a {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-right: 10px;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        
+        .project-links a:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .languages {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .language {
+            text-align: center;
+        }
+        
+        .language h3 {
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .language-level {
+            height: 6px;
+            background-color: #ddd;
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .language-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+            border-radius: 3px;
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+        }
+        
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .availability {
+            font-style: italic;
+            margin-top: 20px;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .tagline {
+                font-size: 1.1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .languages {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <img src="assets/img/1747963112861.png" alt="Photo de profil Elie Loola" class="profile-pic">
+            <h1>Elie Loola</h1>
+            <p class="tagline">Développeur Flutter & Informaticien Polyvalent</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <span>Tél : 243 824348142</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <span>Mail : elijahloola@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Ville de Kinshasa</span>
+                </div>
+            </div>
+            
+            <div class="social-links">
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://play.google.com/store/apps/dev?id=4959152404596968962&hl=fr" target="_blank" title="Play Store"><i class="fab fa-google-play"></i></a>
+                <a href="#" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </header>
+    
+    <section id="profile">
+        <div class="container">
+            <div class="section-title">
+                <h2>Profil Professionnel</h2>
+            </div>
+            <div class="section-content">
+                <p>Développeur Flutter passionné avec plus de 5 ans d'expérience dans la conception et la réalisation d'applications mobiles performantes pour Android et iOS. Mon parcours est enrichi par plus de 10 ans d'expérience en bureautique avancée, traitement de documents (OCR), gestion et optimisation de bases de données SQL, ainsi que la rédaction d'articles professionnels et la création de sites web avec WordPress.</p>
+                <p>Reconnu pour ma rigueur, mon dynamisme et ma capacité à être à l'écoute des besoins, je suis un partenaire fiable pour vos projets techniques.</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="skills">
+        <div class="container">
+            <div class="section-title">
+                <h2>Compétences Clés</h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Développement Mobile</h3>
+                    <ul>
+                        <li>Flutter (Android, iOS)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Bases de Données</h3>
+                    <ul>
+                        <li>Modélisation</li>
+                        <li>Requêtes complexes</li>
+                        <li>Optimisation SQL</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Bureautique Avancée</h3>
+                    <ul>
+                        <li>Microsoft Word</li>
+                        <li>Excel</li>
+                        <li>PowerPoint</li>
+                        <li>Outlook</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Traitement Documentaire</h3>
+                    <ul>
+                        <li>Conversion et traitement OCR</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Rédaction</h3>
+                    <ul>
+                        <li>Articles techniques</li>
+                        <li>Articles administratifs</li>
+                        <li>Articles professionnels</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Création Web</h3>
+                    <ul>
+                        <li>WordPress (installation, personnalisation, maintenance)</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Support Informatique</h3>
+                    <ul>
+                        <li>Gestion de centres informatiques</li>
+                        <li>Support technique de premier et second niveau</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="achievements">
+        <div class="container">
+            <div class="section-title">
+                <h2>Réalisations Notables</h2>
+            </div>
+            <div class="section-content">
+                <div class="project">
+                    <div class="project-header">
+                        <h3>PNDDH – Plateforme numérique pour les Défenseurs des Droits Humains</h3>
+                        <p class="client">Développement pour l'ONG Inter Actions</p>
+                    </div>
+                    <div class="project-content">
+                        <p>Site Web : <a href="http://www.inter-actions-ong.org" target="_blank">www.inter-actions-ong.org</a></p>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-header">
+                        <h3>Applications Android (sous le label GTInstaller)</h3>
+                    </div>
+                    <div class="project-content">
+                        <h4>Branham Story</h4>
+                        <p>Conception et développement d'une application regroupant histoires, poèmes et témoignages du Rév. William Branham.</p>
+                        <p>Technologies utilisées : Flutter, SQLite, Firebase</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.gtinstaller.branhamstory&hl=fr" target="_blank">Voir sur Play Store</a>
+                        </div>
+                        
+                        <h4>Branham Player</h4>
+                        <p>Création d'un lecteur intelligent de sermons audio.</p>
+                        <p>Technologies utilisées : Flutter, SQLite, Firebase</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.branham.player&hl=en" target="_blank">Voir sur Play Store</a>
+                        </div>
+                        
+                        <h4>Sermons – Le Message et la Bible</h4>
+                        <p>Développement d'une application offrant le texte intégral des prédications avec des fonctionnalités avancées de recherche et de lecture.</p>
+                        <p>Technologies utilisées : Flutter, SQLite, ObjectBox, Firebase</p>
+                        <div class="project-links">
+                            <a href="https://play.google.com/store/apps/details?id=com.branham.sermons&hl=fr" target="_blank">Voir sur Play Store</a>
+                        </div>
+                        
+                        <p>Accès à toutes les applications sur le Play Store, sous le label GTInstaller : <a href="https://play.google.com/store/apps/dev?id=4959152404596968962&hl=fr" target="_blank">https://play.google.com/store/apps/dev?id=4959152404596968962&hl=fr</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="languages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Langues</h2>
+            </div>
+            <div class="languages">
+                <div class="language">
+                    <h3>Français</h3>
+                    <p>Langue maternelle</p>
+                    <div class="language-level">
+                        <div class="language-progress" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="language">
+                    <h3>Anglais</h3>
+                    <p>Niveau de compréhension basique (utilisation de traducteurs si nécessaire)</p>
+                    <div class="language-level">
+                        <div class="language-progress" style="width: 40%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container footer-content">
+            <p>Disponible pour des projets de développement, gestion documentaire, rédaction et création de sites web.</p>
+            <p class="availability">Approche axée sur la qualité, l'efficacité et la satisfaction client.</p>
+            <p>&copy; 2023 Elie Loola - Tous droits réservés</p>
+        </div>
+    </footer>
+</body>
+</html>
